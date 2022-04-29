@@ -9,15 +9,15 @@ Please go to [demo](http://enzosv.github.io/solidity-optimize-name/)
 
 Before:
 
-![before](https://github.com/enzosv/solidity-optimize-name/blob/master/before.png)
+![before](https://github.com/enzosv/solidity-optimize-name/blob/master/preview/before.png)
 
 Optimize:
 
-![optimize](https://github.com/enzosv/solidity-optimize-name/blob/master/optimize.png)
+![optimize](https://github.com/enzosv/solidity-optimize-name/blob/master/preview/optimize.png)
 
 After:
 
-![after](https://github.com/enzosv/solidity-optimize-name/blob/master/after.png)
+![after](https://github.com/enzosv/solidity-optimize-name/blob/master/preview/after.png)
 
 ## License
 The project is released under the [MIT license](http://www.opensource.org/licenses/MIT).
