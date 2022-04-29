@@ -1,15 +1,10 @@
 importScripts('https://cdn.rawgit.com/emn178/js-sha3/fb7e6403/build/sha3.min.js');
 
 const CHARS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-var CHAR_MAP = {};
-CHARS.forEach(function (c, index) {
-    CHAR_MAP[c] = index;
-});
-
-var CHAR_CODE_MAP = {};
-CHARS.forEach(function (c, index) {
-    CHAR_CODE_MAP[index] = c.charCodeAt(0);
-});
+// CHARS.forEach(function (c, index) {
+//     CHAR_CODE_MAP[index] = c.charCodeAt(0);
+// });
+const CHAR_CODE_MAP = { "0": 48, "1": 49, "2": 50, "3": 51, "4": 52, "5": 53, "6": 54, "7": 55, "8": 56, "9": 57, "10": 97, "11": 98, "12": 99, "13": 100, "14": 101, "15": 102, "16": 103, "17": 104, "18": 105, "19": 106, "20": 107, "21": 108, "22": 109, "23": 110, "24": 111, "25": 112, "26": 113, "27": 114, "28": 115, "29": 116, "30": 117, "31": 118, "32": 119, "33": 120, "34": 121, "35": 122, "36": 65, "37": 66, "38": 67, "39": 68, "40": 69, "41": 70, "42": 71, "43": 72, "44": 73, "45": 74, "46": 75, "47": 76, "48": 77, "49": 78, "50": 79, "51": 80, "52": 81, "53": 82, "54": 83, "55": 84, "56": 85, "57": 86, "58": 87, "59": 88, "60": 89, "61": 90 };
 
 var data = { blocks: [], s: [] };
 function save(hash) {
@@ -82,17 +77,14 @@ function toCharCodes(bytes) {
 }
 
 onmessage = function (e) {
-    console.time('a');
+    console.time('find');
     let obj = e.data[0];
     let after = e.data[1];
-    if (after == "") {
-        after = "0"
-    }
     var sig = obj.name + obj.args;
     var args = toBytes(obj.args);
     var bytes = [0];
     var index = 0;
-    var prefix = toBytes(obj.name + '_');
+    const prefix = toBytes(obj.name + '_');
     var hash = keccak256.create();
     hash.update(prefix);
     save(hash);
@@ -105,6 +97,7 @@ onmessage = function (e) {
             break
         }
         if (index >= CHARS.length) {
+            // add more chars
             increase(bytes);
             hash = keccak256.create();
             hash.update(prefix);
@@ -116,8 +109,9 @@ onmessage = function (e) {
         hash.update(char);
         hash.update(args);
         restore(hash);
+        // try next char
         ++index;
     }
-    console.timeEnd('a')
+    console.timeEnd('find')
     postMessage([sig, id]);
 }
