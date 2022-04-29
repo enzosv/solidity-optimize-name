@@ -99,7 +99,10 @@
     return codes;
   }
 
-  function find(obj) {
+  function find(obj, after) {
+    if (after == "") {
+      after = "0"
+    }
     var sig = obj.name + obj.args;
     var args = toBytes(obj.args);
     var bytes = [0];
@@ -109,7 +112,13 @@
     hash.update(prefix);
     save(hash);
     var char, methodId = keccak256.array(sig);
-    while (methodId[0] || methodId[1]) {
+    var id = ""
+    while (true) {
+      sig = obj.name + '_' + toChars(bytes) + char + obj.args;
+      id = keccak256(sig).substr(0, 8)
+      if (id.startsWith('0000') && id > after) {
+        break
+      }
       if (index >= CHARS.length) {
         increase(bytes);
         hash = keccak256.create();
@@ -125,15 +134,15 @@
       restore(hash);
       ++index;
     }
-    if (index) {
-      sig = obj.name + '_' + toChars(bytes) + char + obj.args;
-    }
-    return [sig, keccak256(sig).substr(0, 8)];
+
+    $('#after').val(id)
+    return [sig, id];
   }
 
   $(document).ready(function () {
     $('#optimize').click(function () {
-      var input = $('#input').val();
+      var input = $('#input').val().replaceAll(" ", "");
+      var after = $('#after').val();
       $('#error').hide();;
       var data = parseSignature(input);
       if (!data) {
@@ -141,7 +150,7 @@
         return;
       }
       console.time('a');
-      var result = find(data);
+      var result = find(data, after);
       console.timeEnd('a')
       $('#output').append('<p>' + result[0] + ': 0x' + result[1] + '</p>')
     });
