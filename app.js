@@ -1,12 +1,8 @@
 (function ($) {
-  var CHARS = '0123456789abcdefghijklmnopqrstuvwxysABCDEFGHIJKLMNOPQRSTUVWXYS$_'.split('');
+  var CHARS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   var CHAR_MAP = {};
   CHARS.forEach(function (c, index) {
     CHAR_MAP[c] = index;
-  });
-
-  var CHAR_CODES = CHARS.map(function (c) {
-    return c.charCodeAt(0);
   });
 
   var CHAR_CODE_MAP = {};
