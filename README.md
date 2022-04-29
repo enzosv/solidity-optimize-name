@@ -1,7 +1,12 @@
 # Solidity optimize name
 Order your methods by priority and
-find a optimized name for method.
-Please go to [here](http://enzosv.github.io/solidity-optimize-name/).
+find an optimized name for your methods.
+
+# Demo
+Please go to [demo](http://enzosv.github.io/solidity-optimize-name/).
+![before](https://github.com/enzosv/solidity-optimize-name/blob/master/before.png)
+![optimize](https://github.com/enzosv/solidity-optimize-name/blob/master/optimize.png)
+![after](https://github.com/enzosv/solidity-optimize-name/blob/master/after.png)
 
 ## License
 The project is released under the [MIT license](http://www.opensource.org/licenses/MIT).
