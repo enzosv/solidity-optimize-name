@@ -1,6 +1,5 @@
 # Solidity optimize name
-Order your methods by priority and
-find gas-optimized names for them.
+Optimize and prioritize the gas usage of your solidity smart contract methods
 
 [More info](https://medium.com/joyso/solidity-how-does-function-name-affect-gas-consumption-in-smart-contract-47d270d8ac92)
 
