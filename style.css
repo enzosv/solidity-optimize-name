@@ -1,4 +1,7 @@
-body, html, h1, h2 {
+body,
+html,
+h1,
+h2 {
   margin: 0;
   padding: 0;
   font-family: 'Roboto Slab', serif;
@@ -57,16 +60,17 @@ input {
   white-space: nowrap;
   vertical-align: middle;
   -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
 }
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -77,19 +81,22 @@ input {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
 .btn:hover,
 .btn:focus,
 .btn.focus {
   color: #333;
   text-decoration: none;
 }
+
 .btn:active,
 .btn.active {
   background-image: none;
   outline: 0;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
+
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {
@@ -97,29 +104,33 @@ fieldset[disabled] .btn {
   cursor: not-allowed;
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   opacity: .65;
 }
+
 .btn-default {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
 }
+
 .btn-default:hover,
 .btn-default:focus,
 .btn-default.focus,
 .btn-default:active,
 .btn-default.active,
-.open > .dropdown-toggle.btn-default {
+.open>.dropdown-toggle.btn-default {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
+
 .btn-default:active,
 .btn-default.active,
-.open > .dropdown-toggle.btn-default {
+.open>.dropdown-toggle.btn-default {
   background-image: none;
 }
+
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default,
@@ -141,7 +152,34 @@ fieldset[disabled] .btn-default.active {
   background-color: #fff;
   border-color: #ccc;
 }
+
 .btn-default .badge {
   color: #fff;
   background-color: #333;
+}
+
+
+#loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 2;
+  bottom: 2;
+  position: fixed;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

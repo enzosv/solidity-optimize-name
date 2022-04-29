@@ -9,7 +9,6 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="https://cdn.rawgit.com/emn178/js-sha3/fb7e6403/build/sha3.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </head>
 
@@ -28,8 +27,9 @@
       <input id="after" value="" placeholder="after" /><br>
       <button id="optimize" class="btn btn-default">Optimize</button>
     </div>
-    <div id="error">incorrect input</div>
+    <div id="error" hidden>incorrect input</div>
     <div id="output"></div>
+    <div id="loader" hidden></div>
   </div>
   <div id="footer">
     Fork based on <a href="https://github.com/emn178/solidity-optimize-name">emn178's solidity-optimize-name</a><br>
